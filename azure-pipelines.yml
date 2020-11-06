@@ -29,6 +29,12 @@ steps:
   displayName: 'Run Tests'
  
 - task: DotNetCoreCLI@4
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+    feedsToUse: 'select'
+    vstsFeed: 'd08a4406-e2eb-425e-9cd0-26f03bb0ceda'
   inputs:
     command: 'publish'
     publishWebProjects: false
