@@ -8,27 +8,27 @@ variables:
   buildConfiguration: 'Release'
  
 steps:
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@4
   inputs:
     command: 'restore'
     projects: '**/*.csproj'
   displayName: 'Restore Nuget Packages'
  
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@4
   inputs:
     command: 'build'
     projects: '**/*.csproj'
     arguments: '--no-restore'
   displayName: 'Build projects'
  
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@4
   inputs:
     command: 'test'
     projects: '**/*Test.csproj'
     arguments: '--no-restore'
   displayName: 'Run Tests'
  
-- task: DotNetCoreCLI@2
+- task: DotNetCoreCLI@4
   inputs:
     command: 'publish'
     publishWebProjects: false
